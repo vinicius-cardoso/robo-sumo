@@ -566,4 +566,4 @@ void controleAutomatico() {
             }
             break;
     }
-}
+}   
