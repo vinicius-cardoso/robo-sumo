@@ -1,0 +1,55 @@
+===========================================================
+MAPEAMENTO DE PINOS - PROJETO ROBÔ DE SUMÔ ESP32
+===========================================================
+
+-----------------------------------------------------------
+-- PINOS EM USO
+-----------------------------------------------------------
+
+--- Motores (Ponte H L298N) ---
+GPIO32: Motor A - Pino de Habilitação (MOTOR_A_ENA)
+GPIO33: Motor A - Entrada 1 (MOTOR_A_IN1)
+GPIO25: Motor A - Entrada 2 (MOTOR_A_IN2)
+GPIO14: Motor B - Pino de Habilitação (MOTOR_B_ENB)
+GPIO26: Motor B - Entrada 3 (MOTOR_B_IN3)
+GPIO27: Motor B - Entrada 4 (MOTOR_B_IN4)
+
+--- Sensores de Linha (TCRT5000) ---
+GPIO34: Sensor de Linha Esquerda - Saída Analógica (SENSOR_LINHA_ESQUERDA_A0)
+GPIO35: Sensor de Linha Direita - Saída Analógica (SENSOR_LINHA_DIREITA_A0)
+GPIO39: Sensor de Linha Traseira - Saída Analógica (SENSOR_LINHA_TRASEIRA_A0)
+GPIO4:  Sensor de Linha Esquerda - Saída Digital (SENSOR_LINHA_ESQUERDA_D0)*
+GPIO15: Sensor de Linha Direita - Saída Digital (SENSOR_LINHA_DIREITA_D0)*
+GPIO5:  Sensor de Linha Traseira - Saída Digital (SENSOR_LINHA_TRASEIRA_D0)*
+*Observação: Conectado, mas não utilizado na lógica atual do programa.
+
+--- Sensores de Distância (VL53L0X) ---
+GPIO23: Controle (XSHUT) do Sensor de Distância Esquerda
+GPIO18: Controle (XSHUT) do Sensor de Distância Direita
+GPIO19: Controle (XSHUT) do Sensor de Distância Frontal
+
+--- Comunicação I2C (para Sensores VL53L0X) ---
+GPIO21: I2C - Linha de Dados (SDA)
+GPIO22: I2C - Linha de Clock (SCL)
+
+--- Comunicação Serial (Debug e Upload) ---
+GPIO1:  UART0 - Transmissão (TX0). Usado pelo 'Serial.begin()' para monitoramento.
+GPIO3:  UART0 - Recepção (RX0). Usado pelo 'Serial.begin()' para monitoramento.
+
+--- Alimentação e Controle ---
+3.3V: Usado para alimentar componentes externos.
+GND:  Referência de terra comum.
+VIN:  Alimentação de entrada da placa.
+EN:   Pino de Habilitação do Chip (Reset).
+
+-----------------------------------------------------------
+-- PINOS LIVRES (Disponíveis para expansão)
+-----------------------------------------------------------
+
+GPIO0:  Disponível (usado para entrar em modo de boot, usar com cuidado)
+GPIO2:  Disponível
+GPIO12: Disponível (ADC2_5, TOUCH5)
+GPIO13: Disponível (ADC2_4, TOUCH4)
+GPIO16: Disponível (UART2_RXD)
+GPIO17: Disponível (UART2_TXD)
+GPIO36: Disponível (ADC1_0, SENS_VP)

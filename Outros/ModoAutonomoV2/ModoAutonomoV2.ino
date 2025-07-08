@@ -65,7 +65,7 @@ const int LIMITE_PRETO_DIREITA = 2000;
 const int LIMITE_BRANCO_ESQUERDA = 1400;
 const int LIMITE_PRETO_ESQUERDA = 2200;  
 const int LIMITE_BRANCO_TRASEIRA = 1100;
-const int LIMITE_PRETO_TRASEIRA = 1300;  
+const int LIMITE_PRETO_TRASEIRA = 1300;
 
 char linha_esquerda_char_atual = 'P'; // Inicializado como Preto
 char linha_direita_char_atual = 'P';
@@ -676,37 +676,41 @@ void lerSensoresDistanciaTraseira() {
 
   linha_traseira_analog_val = analogRead(SENSOR_LINHA_TRASEIRA_A0);
   linha_traseira_char_atual = (linha_traseira_analog_val < LIMITE_BRANCO_TRASEIRA) ? 'B' : ((linha_traseira_analog_val > LIMITE_PRETO_TRASEIRA) ? 'P' : '-');
+
+  Serial.println(direcaoAtual);
 }
 
 void moverFrente() {
   direcaoAtual = "Frente";
+  //Serial.println(direcaoAtual);
   digitalWrite(MOTOR_A_IN1, HIGH); digitalWrite(MOTOR_A_IN2, LOW);  
   digitalWrite(MOTOR_B_IN3, HIGH); digitalWrite(MOTOR_B_IN4, LOW);  
 }
 
 void moverTras() {
   direcaoAtual = "Tras";
+  //Serial.println(direcaoAtual);
   digitalWrite(MOTOR_A_IN1, LOW); digitalWrite(MOTOR_A_IN2, HIGH);  
   digitalWrite(MOTOR_B_IN3, LOW); digitalWrite(MOTOR_B_IN4, HIGH);  
 }
 
 void virarEsquerda() {
   direcaoAtual = "Esquerda";
+  //Serial.println(direcaoAtual);
   digitalWrite(MOTOR_A_IN1, LOW);  digitalWrite(MOTOR_A_IN2, HIGH);  
   digitalWrite(MOTOR_B_IN3, HIGH); digitalWrite(MOTOR_B_IN4, LOW);  
 }
 
 void virarDireita() {
   direcaoAtual = "Direita";
+  //Serial.println(direcaoAtual);
   digitalWrite(MOTOR_A_IN1, HIGH); digitalWrite(MOTOR_A_IN2, LOW);  
   digitalWrite(MOTOR_B_IN3, LOW);  digitalWrite(MOTOR_B_IN4, HIGH);  
 }
 
 void pararMotores() {
-  if (direcaoAtual != "Parado") { // Só printa se estava movendo
-    Serial.println("Motores Parados");
-  }
   direcaoAtual = "Parado";
+  //Serial.println(direcaoAtual);
   digitalWrite(MOTOR_A_IN1, LOW); digitalWrite(MOTOR_A_IN2, LOW);
   digitalWrite(MOTOR_B_IN3, LOW); digitalWrite(MOTOR_B_IN4, LOW);
 }
